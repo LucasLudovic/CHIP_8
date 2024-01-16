@@ -16,5 +16,5 @@ int display_error(char *error)
         write(2, &error[i], 1);
         i += 1;
     }
-    return 84;
+    return -1;
 }
