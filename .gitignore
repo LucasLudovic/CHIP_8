@@ -5,3 +5,4 @@ tmp
 *.o
 .idea
 *.a
+vgcore*

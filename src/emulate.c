@@ -1,15 +1,38 @@
 #include <stdlib.h>
+#include <SFML/Graphics.h>
+#include <SFML/Window.h>
 #include <string.h>
+#include <stdio.h>
 #include "emulate.h"
+#include "graphics.h"
 #include "my_macros.h"
+#include "events.h"
 
 static
-void init_cpu(chip_cpu_t *cpu)
+int destroy_end(emulator_t *emulator, sfClock *clock)
 {
-    if (cpu == NULL)
+    if (clock != NULL)
+        sfClock_destroy(clock);
+    if (emulator != NULL) {
+        if (emulator->screen != NULL) {
+            if (emulator->screen->window != NULL)
+                sfRenderWindow_destroy(emulator->screen->window);
+            free(emulator->screen);
+        }
+        if (emulator->cpu != NULL)
+            free(emulator->cpu);
+    }
+    return FAILURE;
+}
+
+static
+void init_cpu(emulator_t *emulator)
+{
+    emulator->cpu = malloc(sizeof(chip_cpu_t));
+    if (emulator->cpu == NULL)
         return;
-    memset(cpu, 0, sizeof(*cpu));
-    cpu->current_memory_case = START_ADDRESS;
+    memset(emulator->cpu, 0, sizeof(*(emulator->cpu)));
+    emulator->cpu->current_memory_case = START_ADDRESS;
 }
 
 static
@@ -25,12 +48,26 @@ void update_counter(chip_cpu_t *cpu)
 
 int emulate_chip_8(void)
 {
-    chip_cpu_t cpu = { 0 };
-    int game_on = TRUE;
+    emulator_t emulator = { 0 };
+    sfEvent event = { 0 };
+    sfClock *clock = sfClock_create();
+    sfTime time = { 0 };
+    int seconds = 0;
 
-    init_cpu(&cpu);
-    while (game_on) {
-        //main_emulate_loop
+    if (clock == NULL)
+        return FAILURE;
+    init_cpu(&emulator);
+    if (initialize_screen(&emulator) ==  FAILURE)
+        return destroy_end(&emulator, clock);
+    sfRenderWindow_display(emulator.screen->window);
+    while (sfRenderWindow_isOpen(emulator.screen->window)) {
+        time = sfClock_getElapsedTime(clock);
+        seconds = sfTime_asMilliseconds(time);
+        if ( seconds > FRAME_IN_MS) {
+            check_event(&emulator);
+            update_screen(emulator.screen);
+        }
     }
+    destroy_end(&emulator, clock);
     return SUCCESS;
 }

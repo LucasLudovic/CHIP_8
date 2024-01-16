@@ -9,6 +9,7 @@ SRC	=	src/emulate.c
 SRC	+=	src/main.c
 SRC	+=	src/graphics.c
 SRC	+=	src/rom.c
+SRC	+=	src/events.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -21,6 +22,8 @@ CFLAGS	+=	-W -Wall -Wextra -Wpedantic
 
 LIB	=	-L lib/my -lmy
 LIB	+=	-lcsfml-graphics
+LIB	+=	-lcsfml-system
+LIB	+=	-lcsfml-window
 
 all:	$(NAME)
 
