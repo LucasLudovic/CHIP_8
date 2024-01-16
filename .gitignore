@@ -1,0 +1,7 @@
+CHIP_8
+tmp
+*.gcda
+*.gcno
+*.o
+.idea
+*.a
