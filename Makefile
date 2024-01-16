@@ -10,6 +10,7 @@ SRC	+=	src/main.c
 SRC	+=	src/graphics.c
 SRC	+=	src/rom.c
 SRC	+=	src/events.c
+SRC	+=	src/cpu.c
 
 OBJ	=	$(SRC:.c=.o)
 

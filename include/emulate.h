@@ -17,7 +17,7 @@ typedef struct screen_s {
 
 typedef struct chip_cpu_s {
     unsigned char memory[NB_BYTES];
-    unsigned short current_memory_case;
+    unsigned short program_counter;
     unsigned long memory_register[NB_REGISTER];
     unsigned short address_register;
     unsigned long stack[STACK_LVL];

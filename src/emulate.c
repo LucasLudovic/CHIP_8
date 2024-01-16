@@ -32,7 +32,7 @@ void init_cpu(emulator_t *emulator)
     if (emulator->cpu == NULL)
         return;
     memset(emulator->cpu, 0, sizeof(*(emulator->cpu)));
-    emulator->cpu->current_memory_case = START_ADDRESS;
+    emulator->cpu->program_counter = START_ADDRESS;
 }
 
 static
@@ -49,7 +49,6 @@ void update_counter(chip_cpu_t *cpu)
 int emulate_chip_8(void)
 {
     emulator_t emulator = { 0 };
-    sfEvent event = { 0 };
     sfClock *clock = sfClock_create();
     sfTime time = { 0 };
     int seconds = 0;
@@ -59,6 +58,9 @@ int emulate_chip_8(void)
     init_cpu(&emulator);
     if (initialize_screen(&emulator) ==  FAILURE)
         return destroy_end(&emulator, clock);
+    for (int i = 0; i < PIXEL_BY_HEIGHT; i += 1)
+        for (int j = 0; j < PIXEL_BY_WIDTH; j += 1)
+            emulator.screen->pixels[i][j] = (j % (i + 1)) != 0;
     sfRenderWindow_display(emulator.screen->window);
     while (sfRenderWindow_isOpen(emulator.screen->window)) {
         time = sfClock_getElapsedTime(clock);
@@ -68,6 +70,5 @@ int emulate_chip_8(void)
             update_screen(emulator.screen);
         }
     }
-    destroy_end(&emulator, clock);
     return SUCCESS;
 }
