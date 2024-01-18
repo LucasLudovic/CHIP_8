@@ -112,15 +112,11 @@ void interpret(emulator_t *emulator)
     b1 = (opcode & 0x000F);
     b2 = (opcode & 0x00F0) >> 4;
     b3 = (opcode & 0x0F00) >> 8;
-    switch (action) {
-        case 0:
-            break;
-        case 1:
-            break;
-        case 2:
-            break;
-        default:
-            break;
+    action = get_action(opcode);
+    for (int i = 0; i < NB_OPCODE; i += 1) {
+        if (instructions.id[i] == jump_table.id[action]) {
+            instructions.function[i](emulator);
+        }
     }
     emulator->cpu->program_counter += 2;
 }
