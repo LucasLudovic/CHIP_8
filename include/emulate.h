@@ -7,6 +7,12 @@
     #define START_ADDRESS 0x200
     #define PIXEL_BY_WIDTH 64
     #define PIXEL_BY_HEIGHT 32
+    #define NB_OPCODE 35
+
+typedef struct jump_s {
+    unsigned short mask[NB_OPCODE];
+    unsigned short id[NB_OPCODE];
+}jump_t;
 
 typedef struct screen_s {
     sfRenderWindow *window;
