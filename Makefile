@@ -11,6 +11,7 @@ SRC	+=	src/graphics.c
 SRC	+=	src/rom.c
 SRC	+=	src/events.c
 SRC	+=	src/cpu.c
+SRC	+=	instructions/opcode_00E0.c
 
 OBJ	=	$(SRC:.c=.o)
 
