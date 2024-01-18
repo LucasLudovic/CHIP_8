@@ -12,6 +12,8 @@ SRC	+=	src/emulator/rom.c
 SRC	+=	src/display/graphics.c
 SRC	+=	src/input/events.c
 SRC	+=	src/instructions/opcode_00E0.c
+SRC	+=	src/instructions/opcode_00EE.c
+SRC	+=	src/instructions/opcode_0NNN.c
 
 OBJ	=	$(SRC:.c=.o)
 
