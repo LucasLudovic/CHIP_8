@@ -2,11 +2,10 @@
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
 #include <string.h>
-#include <stdio.h>
-#include "emulate.h"
-#include "graphics.h"
+#include "emulator/emulate.h"
+#include "display/graphics.h"
+#include "input/events.h"
 #include "my_macros.h"
-#include "events.h"
 
 static
 int destroy_end(emulator_t *emulator, sfClock *clock)

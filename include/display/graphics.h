@@ -3,8 +3,8 @@
     #define WIDTH_BASE 1920.f
     #define HEIGHT_BASE 1080.f
     #include <SFML/Graphics.h>
-    #include "emulate.h"
-    #include "graphics.h"
+    #include "emulator/emulate.h"
+    #include "display/graphics.h"
     #define FRAMERATE 60
     #define FRAME_IN_MS 17
 

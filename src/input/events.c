@@ -1,7 +1,7 @@
 #include <SFML/Graphics.h>
 #include <stdio.h>
-#include "emulate.h"
-#include "events.h"
+#include "emulator/emulate.h"
+#include "input/events.h"
 
 static
 void trigger_action(sfEvent *event)

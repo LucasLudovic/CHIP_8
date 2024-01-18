@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "my_macros.h"
-#include "emulate.h"
+#include "emulator/emulate.h"
 #include "my.h"
 
 int load_rom(chip_cpu_t *cpu, const char *path)

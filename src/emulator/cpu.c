@@ -1,4 +1,6 @@
-#include "emulate.h"
+#include "emulator/emulate.h"
+#include "emulator/cpu.h"
+#include "instructions/instructions.h"
 #include "my.h"
 #include "my_macros.h"
 
@@ -39,6 +41,45 @@ static const jump_t jump_table = { .mask[0] = 0xFFFF, .id[0] = 0x00E0,    // OOE
                                    .mask[34] = 0xF0FF, .id[34] = 0xF065,  // Fx65
 };
 
+static const instructions_t instructions = {
+        .id[0] = 0x00E0, .function[0] = &opcode_00E0,
+        .id[1] = 0x00EE,
+        .id[2] = 0x0FFF,
+        .id[3] = 0x1000,
+        .id[4] = 0x2000,
+        .id[5] = 0x3000,
+        .id[6] = 0x4000,
+        .id[7] = 0x5000,
+        .id[8] = 0x6000,
+        .id[9] = 0x7000,
+        .id[10] = 0x8000,
+        .id[11] = 0x8001,
+        .id[12] = 0x8002,
+        .id[13] = 0x8003,
+        .id[14] = 0x8004,
+        .id[15] = 0x8005,
+        .id[16] = 0x8006,
+        .id[17] = 0x8007,
+        .id[18] = 0x800E,
+        .id[19] = 0x9000,
+        .id[20] = 0xA000,
+        .id[21] = 0xB000,
+        .id[22] = 0xC000,
+        .id[23] = 0xD000,
+        .id[24] = 0xE09E,
+        .id[25] = 0xE0A1,
+        .id[26] = 0xF007,
+        .id[27] = 0xF00A,
+        .id[28] = 0xF015,
+        .id[29] = 0xF018,
+        .id[30] = 0xF01E,
+        .id[31] = 0xF029,
+        .id[32] = 0xF033,
+        .id[33] = 0xF055,
+        .id[34] = 0xF065,
+};
+
+static
 unsigned short get_opcode(chip_cpu_t *cpu)
 {
     unsigned short opcode = 0;
@@ -49,6 +90,7 @@ unsigned short get_opcode(chip_cpu_t *cpu)
     return opcode;
 }
 
+static
 unsigned char get_action(unsigned short opcode)
 {
     for (size_t i = 0; i < NB_OPCODE; i += 1) {

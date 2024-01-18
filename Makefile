@@ -5,13 +5,13 @@
 ## Makefile for my lib
 ##
 
-SRC	=	src/emulate.c
-SRC	+=	src/main.c
-SRC	+=	src/graphics.c
-SRC	+=	src/rom.c
-SRC	+=	src/events.c
-SRC	+=	src/cpu.c
-SRC	+=	instructions/opcode_00E0.c
+SRC	=	src/main.c
+SRC	+=	src/emulator/cpu.c
+SRC	+=	src/emulator/emulate.c
+SRC	+=	src/emulator/rom.c
+SRC	+=	src/display/graphics.c
+SRC	+=	src/input/events.c
+SRC	+=	src/instructions/opcode_00E0.c
 
 OBJ	=	$(SRC:.c=.o)
 

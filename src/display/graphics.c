@@ -1,11 +1,10 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-#include "emulate.h"
+#include "emulator/emulate.h"
+#include "display/graphics.h"
 #include "my.h"
 #include "my_macros.h"
-#include "graphics.h"
 
 void clear_screen(screen_t *screen)
 {
