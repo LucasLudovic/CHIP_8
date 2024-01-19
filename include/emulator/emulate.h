@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Emulate header
+** Header for the emulator mains functions
+*/
+
 #ifndef EMULATE_H_
     #define EMULATE_H_
     #include <SFML/Graphics.h>

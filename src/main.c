@@ -1,5 +1,10 @@
-#include "my_macros.h"
-#include "my.h"
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Main
+** Call the program to execute
+*/
+
 #include "emulator/emulate.h"
 
 int main(void)

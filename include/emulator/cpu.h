@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** CPU header
+** Header to handle the cpu simulator functions
+*/
+
 #ifndef CPU_H_
     #define CPU_H_
     #include "emulator/emulate.h"

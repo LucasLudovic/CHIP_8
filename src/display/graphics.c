@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Graphics
+** Functions to handle the game's graphics
+*/
+
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 #include <string.h>

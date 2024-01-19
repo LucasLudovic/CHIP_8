@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Events
+** Handle the input functions for the games
+*/
+
 #include <SFML/Graphics.h>
 #include <stdio.h>
 #include "emulator/emulate.h"

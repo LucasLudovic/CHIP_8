@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Emulate
+** Main loop function of the emulator
+*/
+
 #include <stdlib.h>
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>

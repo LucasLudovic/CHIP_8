@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Rom Handler
+** Retrieve the instructions binary from the provided rom
+*/
+
 #include <stdio.h>
 #include "my_macros.h"
 #include "emulator/emulate.h"

@@ -1,8 +1,8 @@
-/*
-** EPITECH PROJECT, 2023
-** MY_H
-** File description:
-** Header for my lib
+/* VALIANCE PROJECT
+** 20/10/2023
+** Emulator CHIP-8
+** Lib header
+** Header for my lib from school
 */
 
 #ifndef MY_H

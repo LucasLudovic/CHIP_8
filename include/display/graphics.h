@@ -1,3 +1,10 @@
+/* VALIANCE PROJECT
+** 18/01/2024
+** Emulator CHIP-8
+** Graphics
+** Header to handle the game's graphics functions
+*/
+
 #ifndef GRAPHICS_H_
     #define GRAPHICS_H_
     #define WIDTH_BASE 1920.f
