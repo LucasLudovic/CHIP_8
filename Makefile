@@ -14,27 +14,32 @@ SRC	+=	src/input/events.c
 SRC	+=	src/instructions/opcode_00E0.c
 SRC	+=	src/instructions/opcode_00EE.c
 SRC	+=	src/instructions/opcode_0NNN.c
+SRC	+=	src/instructions/opcode_1NNN.c
+SRC	+=	src/instructions/opcode_2NNN.c
+SRC	+=	src/instructions/opcode_3XKK.c
 
 OBJ	=	$(SRC:.c=.o)
 
 NAME	=	Chip_8
 
-CC	=	gcc -g3
+CC	=	gcc
 
 CFLAGS	=	-I include
 CFLAGS	+=	-W -Wall -Wextra -Wpedantic
 
-LIB	=	-L lib/my -lmy
-LIB	+=	-lcsfml-graphics
-LIB	+=	-lcsfml-system
-LIB	+=	-lcsfml-window
+CPPFLAGS = -g3
+
+LDFLAGS	=	-L lib/my -lmy
+LDFLAGS	+=	-lcsfml-graphics
+LDFLAGS	+=	-lcsfml-system
+LDFLAGS	+=	-lcsfml-window
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	@make -C lib/my
 	@make clean -C lib/my
-	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LIB)
+	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS) $(LDFLAGS)
 
 clean:
 	@rm -f $(OBJ)

@@ -10,10 +10,12 @@
 
 int opcode_OOEE(emulator_t *emulator)
 {
-    emulator->cpu->program_counter = emulator->cpu->stack[STACK_LVL - 1];
-    if (emulator->cpu->current_stack_address > 0)
+    if (emulator == NULL || emulator->cpu == NULL || emulator->cpu->stack == NULL)
+        return FAILURE;
+    emulator->cpu->program_counter = emulator->cpu->stack[emulator->cpu->current_stack_address];
+    if (emulator->cpu->current_stack_address > 0) {
+        emulator->cpu->stack[emulator->cpu->current_stack_address] = 0;
         emulator->cpu->current_stack_address -= 1;
-    else
-        emulator->cpu->current_stack_address = STACK_LVL - 1;
+    }
     return SUCCESS;
 }

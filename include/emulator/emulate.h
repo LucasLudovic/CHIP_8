@@ -8,6 +8,7 @@
 #ifndef EMULATE_H_
     #define EMULATE_H_
     #include <SFML/Graphics.h>
+    #include "my_types.h"
     #define NB_BYTES 4096
     #define STACK_LVL 16
     #define NB_REGISTER 16
@@ -17,26 +18,26 @@
     #define NB_OPCODE 35
 
 typedef struct jump_s {
-    unsigned short mask[NB_OPCODE];
-    unsigned short id[NB_OPCODE];
+    Uint16 mask[NB_OPCODE];
+    Uint16 id[NB_OPCODE];
 }jump_t;
 
 typedef struct screen_s {
     sfRenderWindow *window;
-    unsigned char pixels[PIXEL_BY_HEIGHT][PIXEL_BY_WIDTH];
-    unsigned long long pixel_height;
-    unsigned long long pixel_width;
+    Uint8 pixels[PIXEL_BY_HEIGHT][PIXEL_BY_WIDTH];
+    Uint64 pixel_height;
+    Uint64 pixel_width;
 }screen_t;
 
 typedef struct chip_cpu_s {
-    unsigned char memory[NB_BYTES];
-    unsigned short program_counter;
-    unsigned long memory_register[NB_REGISTER];
-    unsigned short address_register;
-    unsigned long stack[STACK_LVL];
-    unsigned char current_stack_address;
-    unsigned short sys_timer;
-    unsigned short sound_timer;
+    Uint8 memory[NB_BYTES];
+    Uint16 program_counter;
+    Uint8 memory_register[NB_REGISTER];
+    Uint16 address_register;
+    Uint64 stack[STACK_LVL];
+    Uint8 current_stack_address;
+    Uint16 sys_timer;
+    Uint16 sound_timer;
 }chip_cpu_t;
 
 typedef struct emulator_s {

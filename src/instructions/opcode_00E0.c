@@ -11,6 +11,8 @@
 
 int opcode_00E0(emulator_t *emulator)
 {
+    if (emulator == NULL || emulator->screen == NULL)
+        return FAILURE;
     clear_screen(emulator->screen);
     return SUCCESS;
 }
