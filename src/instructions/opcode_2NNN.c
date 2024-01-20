@@ -12,7 +12,7 @@
 
 int opcode_2NNN(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
 {
-    if (emulator == NULL || emulator->cpu == NULL || emulator->cpu->stack == NULL)
+    if (emulator == NULL || emulator->cpu == NULL)
         return display_error("Unable to access the cpu\n");
     emulator->cpu->current_stack_address += 1;
     if (emulator->cpu->current_stack_address >= STACK_LVL)

@@ -12,7 +12,7 @@
 
 int opcode_3XKK(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
 {
-    if (emulator == NULL || emulator->cpu == NULL || emulator->cpu->memory_register == NULL)
+    if (emulator == NULL || emulator->cpu == NULL)
         return display_error("Unable to use the cpu with opcode 3xkk");
     if (emulator->cpu->memory_register[b3] == ((b2 << 4) | b1))
         emulator->cpu->program_counter += 2;

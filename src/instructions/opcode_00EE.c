@@ -8,9 +8,9 @@
 #include "emulator/emulate.h"
 #include "my_macros.h"
 
-int opcode_OOEE(emulator_t *emulator)
+int opcode_OOEE(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
 {
-    if (emulator == NULL || emulator->cpu == NULL || emulator->cpu->stack == NULL)
+    if (emulator == NULL || emulator->cpu == NULL)
         return FAILURE;
     emulator->cpu->program_counter = emulator->cpu->stack[emulator->cpu->current_stack_address];
     if (emulator->cpu->current_stack_address > 0) {

@@ -12,7 +12,7 @@
 
 typedef struct instructions_s {
     unsigned short id[NB_OPCODE];
-    int (*function[NB_OPCODE])(emulator_t *emulator);
+    int (*function[NB_OPCODE])(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3);
 }instructions_t;
 
 #endif

@@ -9,7 +9,7 @@
 #include "emulator/emulate.h"
 #include "my_macros.h"
 
-int opcode_00E0(emulator_t *emulator)
+int opcode_00E0(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
 {
     if (emulator == NULL || emulator->screen == NULL)
         return FAILURE;

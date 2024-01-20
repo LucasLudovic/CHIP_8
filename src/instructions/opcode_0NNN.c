@@ -8,7 +8,7 @@
 #include "emulator/emulate.h"
 #include "my_macros.h"
 
-int opcode_0NNN(emulator_t *emulator)
+int opcode_0NNN(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
 {
     return SUCCESS;
 }
