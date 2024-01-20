@@ -7,6 +7,7 @@
 
 #ifndef MY_MACROS_H_
     #define MY_MACROS_H_
+    #define UNUSED __attribute__((unused))
     #define SUCCESS 0
     #define FAILURE -1
     #define TRUE 1
