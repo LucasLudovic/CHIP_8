@@ -10,7 +10,7 @@
 #include "my.h"
 #include "my_types.h"
 
-int opcode_8XY0(emulator_t *emulator, UNUSED Uint8 b1, UNUSED Uint8 b2, UNUSED Uint8 b3)
+int opcode_8XY0(emulator_t *emulator, UNUSED Uint8 b1, Uint8 b2, Uint8 b3)
 {
     if (emulator == NULL || emulator->cpu == NULL)
         return display_error("Unable to access the cpu with opcode 8XY0\n");
