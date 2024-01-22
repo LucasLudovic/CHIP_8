@@ -26,6 +26,8 @@ SRC	+=	src/instructions/opcode_8XY1.c
 SRC	+=	src/instructions/opcode_8XY2.c
 SRC	+=	src/instructions/opcode_8XY3.c
 SRC	+=	src/instructions/opcode_8XY4.c
+SRC	+=	src/instructions/opcode_8XY5.c
+SRC	+=	src/instructions/opcode_8XY6.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -33,10 +35,10 @@ NAME	=	Chip_8
 
 CC	=	gcc
 
-CFLAGS	=	-I include
-CFLAGS	+=	-W -Wall -Wextra -Wpedantic
+CFLAGS = -g3
+CFLAGS += -W -Wall -Wextra -Wpedantic
 
-CPPFLAGS = -g3
+CPPFLAGS	=	-I include
 
 LDFLAGS	=	-L lib/my -lmy
 LDFLAGS	+=	-lcsfml-graphics
