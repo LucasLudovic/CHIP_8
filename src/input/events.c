@@ -18,13 +18,13 @@ void trigger_action(sfEvent *event)
 
 void check_event(emulator_t *emulator)
 {
-    while (sfRenderWindow_pollEvent(emulator->screen->window, &emulator->event)) {
-        switch (emulator->event.type) {
+    while (sfRenderWindow_pollEvent(emulator->screen->window, &emulator->action->event)) {
+        switch (emulator->action->event.type) {
             case sfEvtClosed:
                 sfRenderWindow_close(emulator->screen->window);
                 break;
             case sfEvtKeyReleased:
-                trigger_action(&emulator->event);
+                trigger_action(&emulator->action->event);
                 break;
             default:
                 break;

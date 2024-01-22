@@ -28,6 +28,8 @@ int destroy_end(emulator_t *emulator, sfClock *clock)
         }
         if (emulator->cpu != NULL)
             free(emulator->cpu);
+        if (emulator->action != NULL)
+            free(emulator->action);
     }
     return FAILURE;
 }
@@ -39,6 +41,7 @@ void init_cpu(emulator_t *emulator)
     if (emulator->cpu == NULL)
         return;
     memset(emulator->cpu, 0, sizeof(*(emulator->cpu)));
+    emulator->action = malloc(sizeof(action_t));
     emulator->cpu->program_counter = START_ADDRESS;
 }
 
@@ -78,5 +81,6 @@ int emulate_chip_8(void)
             update_screen(emulator.screen);
         }
     }
+    destroy_end(&emulator, clock);
     return SUCCESS;
 }

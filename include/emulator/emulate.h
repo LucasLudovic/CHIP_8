@@ -17,17 +17,22 @@
     #define PIXEL_BY_HEIGHT 32
     #define NB_OPCODE 35
 
+typedef struct action_s {
+    sfEvent event;
+    Uint8 key_pressed_value;
+} action_t;
+
 typedef struct jump_s {
     Uint16 mask[NB_OPCODE];
     Uint16 id[NB_OPCODE];
-}jump_t;
+} jump_t;
 
 typedef struct screen_s {
     sfRenderWindow *window;
     Uint8 pixels[PIXEL_BY_HEIGHT][PIXEL_BY_WIDTH];
     Uint64 pixel_height;
     Uint64 pixel_width;
-}screen_t;
+} screen_t;
 
 typedef struct chip_cpu_s {
     Uint8 memory[NB_BYTES];
@@ -38,12 +43,12 @@ typedef struct chip_cpu_s {
     Uint8 current_stack_address;
     Uint16 sys_timer;
     Uint16 sound_timer;
-}chip_cpu_t;
+} chip_cpu_t;
 
 typedef struct emulator_s {
     chip_cpu_t *cpu;
     screen_t *screen;
-    sfEvent event;
+    action_t *action;
 } emulator_t;
 
 int emulate_chip_8(void);
