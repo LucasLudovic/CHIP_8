@@ -6,6 +6,7 @@
 */
 
 #include <stdlib.h>
+#include <time.h>
 #include <SFML/Graphics.h>
 #include <SFML/Window.h>
 #include <string.h>
@@ -56,9 +57,10 @@ int emulate_chip_8(void)
 {
     emulator_t emulator = { 0 };
     sfClock *clock = sfClock_create();
-    sfTime time = { 0 };
+    sfTime my_time = { 0 };
     int seconds = 0;
 
+    srand(time(NULL));
     if (clock == NULL)
         return FAILURE;
     init_cpu(&emulator);
@@ -69,8 +71,8 @@ int emulate_chip_8(void)
             emulator.screen->pixels[i][j] = (j % (i + 1)) != 0;
     sfRenderWindow_display(emulator.screen->window);
     while (sfRenderWindow_isOpen(emulator.screen->window)) {
-        time = sfClock_getElapsedTime(clock);
-        seconds = sfTime_asMilliseconds(time);
+        my_time = sfClock_getElapsedTime(clock);
+        seconds = sfTime_asMilliseconds(my_time);
         if ( seconds > FRAME_IN_MS) {
             check_event(&emulator);
             update_screen(emulator.screen);
