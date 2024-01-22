@@ -1,5 +1,5 @@
 /* VALIANCE PROJECT
-** 18/01/2024
+** 22/01/2024
 ** Emulator CHIP-8
 ** Opcode 8XY6 instructions
 ** Set Vx = Vx SHR 1
