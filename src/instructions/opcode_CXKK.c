@@ -16,7 +16,7 @@ int opcode_CXKK(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
     int rand_number = 0;
 
     if (emulator == NULL || emulator->cpu == NULL)
-        return display_error("Unable to access CPU with opcode 8XY6\n");
+        return display_error("Unable to access CPU with opcode CXKK\n");
     rand_number = rand() & 0xFF;
     emulator->cpu->memory_register[b3] = rand_number & ((b2 << 4) | b1);
     return SUCCESS;
