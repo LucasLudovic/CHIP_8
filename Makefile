@@ -31,6 +31,7 @@ SRC	+=	src/instructions/opcode_8XY6.c
 SRC	+=	src/instructions/opcode_8XY7.c
 SRC	+=	src/instructions/opcode_8XYE.c
 SRC	+=	src/instructions/opcode_9XY0.c
+SRC	+=	src/instructions/opcode_ANNN.c
 
 OBJ	=	$(SRC:.c=.o)
 

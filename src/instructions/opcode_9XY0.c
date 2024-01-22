@@ -10,7 +10,7 @@
 #include "my.h"
 #include "my_macros.h"
 
-int opcode_9XY0(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3)
+int opcode_9XY0(emulator_t *emulator, UNUSED Uint8 b1, Uint8 b2, Uint8 b3)
 {
     if (emulator == NULL || emulator->cpu == NULL)
         return display_error("Unable to access CPU with opcode 9XY0\n");
