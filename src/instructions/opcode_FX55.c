@@ -14,8 +14,7 @@ int opcode_FX55(emulator_t *emulator, UNUSED Uint8 b1, UNUSED Uint8 b2, Uint8 b3
 {
     if (emulator == NULL || emulator->cpu == NULL)
         return display_error("Unable to access CPU with opcode FX55\n");
-    for (int i = 0; i <= b3; i += 1) {
+    for (int i = 0; i <= b3; i += 1)
         emulator->cpu->memory[emulator->cpu->address_register + i] = emulator->cpu->memory_register[i];
-    }
     return SUCCESS;
 }
