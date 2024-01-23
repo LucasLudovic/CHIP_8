@@ -5,6 +5,7 @@
 ** Wait for a key pressed, then value put in Vx
 */
 
+#include <stdio.h>
 #include "emulator/emulate.h"
 #include "my_types.h"
 #include "my.h"

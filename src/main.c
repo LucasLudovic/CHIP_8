@@ -6,8 +6,11 @@
 */
 
 #include "emulator/emulate.h"
+#include "my.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
-    return emulate_chip_8();
+    if (argc != 2 || argv == NULL || argv[1] == NULL)
+        return display_error("Wrong arguments\n");
+    return emulate_chip_8(argv[1]);
 }

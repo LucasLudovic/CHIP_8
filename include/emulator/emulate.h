@@ -52,6 +52,6 @@ typedef struct emulator_s {
     action_t *action;
 } emulator_t;
 
-int emulate_chip_8(void);
+int emulate_chip_8(const char *path);
 
 #endif

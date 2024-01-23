@@ -80,7 +80,7 @@ void update_counter(chip_cpu_t *cpu)
         cpu->sys_timer -= 1;
 }
 
-int emulate_chip_8(void)
+int emulate_chip_8(const char *path)
 {
     emulator_t emulator = { 0 };
     sfClock *clock = sfClock_create();
@@ -95,7 +95,7 @@ int emulate_chip_8(void)
     if (initialize_screen(&emulator) ==  FAILURE)
         return destroy_end(&emulator, clock);
     sfRenderWindow_display(emulator.screen->window);
-    load_rom(emulator.cpu, "Roms/Maze.ch8");
+    load_rom(emulator.cpu, path);
     while (sfRenderWindow_isOpen(emulator.screen->window)) {
         my_time = sfClock_getElapsedTime(clock);
         milli_seconds = sfTime_asMilliseconds(my_time);
