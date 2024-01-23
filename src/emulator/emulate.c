@@ -104,6 +104,7 @@ int emulate_chip_8(const char *path)
             interpret(&emulator);
             timer += 1;
             sfClock_restart(clock);
+            update_counter(emulator.cpu);
         }
         if (timer >= 4) {
             update_screen(emulator.screen);
