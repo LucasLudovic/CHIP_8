@@ -18,7 +18,7 @@ void trigger_action(sfEvent *event)
 
 void check_event(emulator_t *emulator)
 {
-    while (sfRenderWindow_pollEvent(emulator->screen->window, &emulator->action->event)) {
+    while (sfRenderWindow_waitEvent(emulator->screen->window, &emulator->action->event)) {
         switch (emulator->action->event.type) {
             case sfEvtClosed:
                 sfRenderWindow_close(emulator->screen->window);

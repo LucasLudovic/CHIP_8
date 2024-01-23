@@ -14,6 +14,7 @@
 #include "display/graphics.h"
 #include "input/events.h"
 #include "my_macros.h"
+#include "emulator/cpu.h"
 
 static
 int destroy_end(emulator_t *emulator, sfClock *clock)
@@ -77,7 +78,7 @@ int emulate_chip_8(void)
         my_time = sfClock_getElapsedTime(clock);
         seconds = sfTime_asMilliseconds(my_time);
         if ( seconds > FRAME_IN_MS) {
-            check_event(&emulator);
+            interpret(&emulator);
             update_screen(emulator.screen);
         }
     }

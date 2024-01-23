@@ -15,4 +15,6 @@ typedef struct instructions_s {
     int (*function[NB_OPCODE])(emulator_t *emulator, Uint8 b1, Uint8 b2, Uint8 b3);
 }instructions_t;
 
+void interpret(emulator_t *emulator);
+
 #endif
