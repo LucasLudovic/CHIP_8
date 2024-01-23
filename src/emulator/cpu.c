@@ -12,6 +12,7 @@
 #include "my_macros.h"
 #include "my_types.h"
 #include "instructions/jump_table.h"
+#include <stdio.h>
 
 static
 Uint16 get_opcode(chip_cpu_t *cpu)

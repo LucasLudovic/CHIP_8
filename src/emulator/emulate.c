@@ -100,10 +100,14 @@ int emulate_chip_8(void)
         my_time = sfClock_getElapsedTime(clock);
         milli_seconds = sfTime_asMilliseconds(my_time);
         check_event(&emulator);
-        if (milli_seconds > FRAME_IN_MS) {
+        if (milli_seconds > FREQUENCE_IN_MS) {
             interpret(&emulator);
-            update_screen(emulator.screen);
+            timer += 1;
             sfClock_restart(clock);
+        }
+        if (timer >= 4) {
+            update_screen(emulator.screen);
+            timer = 0;
         }
     }
     destroy_end(&emulator, clock);
