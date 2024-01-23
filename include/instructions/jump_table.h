@@ -10,8 +10,8 @@
     #include "emulator/emulate.h"
     #include "instructions/instructions.h"
 
-static const jump_t jump_table = { .mask[0] = 0xFFFF, .id[0] = 0x00E0,    // OOEO
-        .mask[1] = 0xFFFF, .id[1] = 0x00EE,    // OOEE
+static const jump_t jump_table = { .mask[0] = 0xFFFF, .id[0] = 0x00E0,    // 00E0
+        .mask[1] = 0xFFFF, .id[1] = 0x00EE,    // 00EE
         .mask[2] = 0x0000, .id[2] = 0x0FFF,    // 0NNN
         .mask[3] = 0xF000, .id[3] = 0x1000,    // 1NNN
         .mask[4] = 0xF000, .id[4] = 0x2000,    // 2NNN

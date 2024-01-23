@@ -28,7 +28,7 @@ void update_screen(screen_t *screen)
     if (pixel_normalize == NULL)
         return;
     sfRenderWindow_clear(screen->window, sfBlack);
-    sfRectangleShape_setSize(pixel_normalize, (sfVector2f){(float)window_size.x / (float)screen->pixel_width, (float)window_size.y / (float)screen->pixel_height});
+    sfRectangleShape_setSize(pixel_normalize, (sfVector2f){(float)screen->pixel_width, (float)screen->pixel_height});
     sfRectangleShape_setFillColor(pixel_normalize, sfWhite);
     for (size_t i = 0; i < PIXEL_BY_HEIGHT; i += 1) {
         for (size_t j = 0; j < PIXEL_BY_WIDTH; j += 1) {

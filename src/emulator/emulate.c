@@ -15,6 +15,7 @@
 #include "input/events.h"
 #include "my_macros.h"
 #include "emulator/cpu.h"
+#include "emulator/rom.h"
 
 static
 int destroy_end(emulator_t *emulator, sfClock *clock)
@@ -85,6 +86,7 @@ int emulate_chip_8(void)
     sfClock *clock = sfClock_create();
     sfTime my_time = { 0 };
     int milli_seconds = 0;
+    int timer = 0;
 
     srand(time(NULL));
     if (clock == NULL)
@@ -92,14 +94,14 @@ int emulate_chip_8(void)
     init_cpu(&emulator);
     if (initialize_screen(&emulator) ==  FAILURE)
         return destroy_end(&emulator, clock);
-    for (int i = 0; i < PIXEL_BY_HEIGHT; i += 1)
-        for (int j = 0; j < PIXEL_BY_WIDTH; j += 1)
-            emulator.screen->pixels[i][j] = (j % (i + 1)) != 0;
     sfRenderWindow_display(emulator.screen->window);
+    load_rom(emulator.cpu, "Roms/Maze.ch8");
     while (sfRenderWindow_isOpen(emulator.screen->window)) {
         my_time = sfClock_getElapsedTime(clock);
         milli_seconds = sfTime_asMilliseconds(my_time);
+        check_event(&emulator);
         if (milli_seconds > FRAME_IN_MS) {
+            interpret(&emulator);
             update_screen(emulator.screen);
             sfClock_restart(clock);
         }

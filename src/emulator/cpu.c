@@ -50,6 +50,7 @@ void interpret(emulator_t *emulator)
     for (int i = 0; i < NB_OPCODE; i += 1) {
         if (instructions.id[i] == jump_table.id[action]) {
             instructions.function[i](emulator, b1, b2, b3);
+            break;
         }
     }
     emulator->cpu->program_counter += 2;

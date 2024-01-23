@@ -16,6 +16,7 @@
     #define PIXEL_BY_WIDTH 64
     #define PIXEL_BY_HEIGHT 32
     #define NB_OPCODE 35
+    #define FREQUENCE_IN_MS 4
 
 typedef struct action_s {
     sfEvent event;
