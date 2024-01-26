@@ -14,7 +14,6 @@ int opcode_00EE(emulator_t *emulator, UNUSED Uint8 b1, UNUSED Uint8 b2, UNUSED U
         return FAILURE;
     emulator->cpu->program_counter = emulator->cpu->stack[emulator->cpu->current_stack_address];
     if (emulator->cpu->current_stack_address > 0) {
-        emulator->cpu->stack[emulator->cpu->current_stack_address] = 0;
         emulator->cpu->current_stack_address -= 1;
     }
     return SUCCESS;
