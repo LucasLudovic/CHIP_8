@@ -14,7 +14,7 @@ int opcode_8XY7(emulator_t *emulator, UNUSED Uint8 b1, Uint8 b2, Uint8 b3)
 {
     if (emulator == NULL || emulator->cpu == NULL)
         return display_error("Unable to access CPU with opcode 8XY7\n");
-    emulator->cpu->memory_register[NB_REGISTER - 1] = emulator->cpu->memory_register[b3] <= emulator->cpu->memory_register[b2];
+    emulator->cpu->memory_register[NB_REGISTER - 1] = emulator->cpu->memory_register[b2] >= emulator->cpu->memory_register[b3];
     emulator->cpu->memory_register[b3] = emulator->cpu->memory_register[b2] - emulator->cpu->memory_register[b3];
     return SUCCESS;
 }

@@ -77,7 +77,7 @@ void update_counter(chip_cpu_t *cpu)
     if (cpu->sys_timer > 0)
         cpu->sys_timer -= 1;
     if (cpu->sound_timer > 0)
-        cpu->sys_timer -= 1;
+        cpu->sound_timer -= 1;
 }
 
 int emulate_chip_8(const char *path)
