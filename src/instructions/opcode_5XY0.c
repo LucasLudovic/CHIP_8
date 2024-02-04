@@ -18,3 +18,4 @@ int opcode_5XY0(emulator_t *emulator, UNUSED Uint8 b1, Uint8 b2, Uint8 b3)
         emulator->cpu->program_counter += 2;
     return SUCCESS;
 }
+
